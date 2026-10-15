@@ -9,29 +9,35 @@ class Address {
 }
 
 class Employee {
-  String name;
-  double baseSalary;
-  List<Skill> skills;
-  Address address;
-  int yearsOfExperience;
+  String _name;
+  double _baseSalary;
+  List<Skill> _skills;
+  Address _address;
+  int _yearsOfExperience;
+
+  String get name => _name;
+  double get baseSalary => _baseSalary;
+  List<Skill> get skills => _skills;
+  Address get address => _address;
+  int get yearsOfExperience => _yearsOfExperience;
 
   Employee(
-    this.name,
-    this.baseSalary,
-    this.skills,
-    this.address,
-    this.yearsOfExperience
+    this._name,
+    this._baseSalary,
+    this._skills,
+    this._address,
+    this._yearsOfExperience
   );
 
   Employee.mobileDeveloper(
     String name,
     Address address,
     int yearsOfExperience
-  ) : name = name,
-      baseSalary = 40000,
-      skills = [Skill.DART, Skill.FLUTTER],
-      address = address,
-      yearsOfExperience = yearsOfExperience;
+  ) : _name = name,
+      _baseSalary = 40000,
+      _skills = [Skill.DART, Skill.FLUTTER],
+      _address = address,
+      _yearsOfExperience = yearsOfExperience;
 
   void printDetails() {
     print('Employee: $name');
