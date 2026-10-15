@@ -9,11 +9,11 @@ class Address {
 }
 
 class Employee {
-  String _name;
-  double _baseSalary;
-  List<Skill> _skills;
-  Address _address;
-  int _yearsOfExperience;
+  final String _name;
+  final double _baseSalary;
+  final List<Skill> _skills;
+  final Address _address;
+  final int _yearsOfExperience;
 
   String get name => _name;
   double get baseSalary => _baseSalary;
@@ -38,6 +38,24 @@ class Employee {
       _skills = [Skill.DART, Skill.FLUTTER],
       _address = address,
       _yearsOfExperience = yearsOfExperience;
+  
+  double calculateSalary() {
+    double salary = _baseSalary;
+
+    salary += _yearsOfExperience * 2000;
+
+    for(Skill skill in _skills) {
+      if(skill == Skill.FLUTTER) {
+        salary += 5000;
+      } else if(skill == Skill.DART) {
+        salary += 3000;
+      } else if(skill == Skill.OTHER) {
+        salary += 1000;
+      }
+    }
+
+    return salary;
+  }
 
   void printDetails() {
     print('Employee: $name');
@@ -67,4 +85,8 @@ void main() {
     20,
   );
   emp2.printDetails();
+
+  print('Final Salary for ${emp1.name}: \$${emp1.calculateSalary()}');
+
+  print('Final Salary for ${emp2.name}: \$${emp2.calculateSalary()}');
 }
